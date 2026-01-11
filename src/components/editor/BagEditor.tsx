@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { useSaveStore } from "@/stores/saveStore";
 import { SAV3, ItemPocketType } from "@/lib/pkhex-core/saves/SAV3";
-import { getItemName, getItemList } from "@/lib/data/items";
+import { getItemName, getGen3ItemsForPocket } from "@/lib/data/items";
 import { Plus, Minus, Trash2 } from "lucide-react";
 
 interface BagItem {
@@ -44,7 +44,7 @@ export function BagEditor() {
   );
   const [selectedItemToAdd, setSelectedItemToAdd] = useState<string>("");
   const [quantityToAdd, setQuantityToAdd] = useState<number>(1);
-  const [, forceUpdate] = useState({});
+  const [updateTrigger, forceUpdate] = useState({});
 
   // Only works with Gen 3
   if (!save || generation !== 3 || !(save instanceof SAV3)) {
@@ -60,18 +60,19 @@ export function BagEditor() {
   const sav3 = save as SAV3;
 
   // Get items for selected pocket
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const pocketItems = useMemo((): BagItem[] => {
     const items = sav3.getItems(selectedPocket);
     return items.map((item) => ({
       ...item,
       name: getItemName(item.itemId, 3),
     }));
-  }, [sav3, selectedPocket]);
+  }, [sav3, selectedPocket, updateTrigger]);
 
-  // Get available items for adding (Gen 3)
+  // Get available items for adding (Gen 3) - filtered by pocket type
   const availableItems = useMemo(() => {
-    return getItemList(3).filter((item) => item.id > 0);
-  }, []);
+    return getGen3ItemsForPocket(selectedPocket);
+  }, [selectedPocket]);
 
   const handleAddItem = () => {
     if (!selectedItemToAdd) return;
@@ -121,7 +122,10 @@ export function BagEditor() {
         {/* Pocket tabs */}
         <Tabs
           value={selectedPocket}
-          onValueChange={(v) => setSelectedPocket(v as ItemPocketType)}
+          onValueChange={(v) => {
+            setSelectedPocket(v as ItemPocketType);
+            setSelectedItemToAdd(""); // Reset item selection when pocket changes
+          }}
         >
           <TabsList className="grid grid-cols-3 h-auto">
             {pocketTabs.slice(0, 3).map(({ type, name }) => (
