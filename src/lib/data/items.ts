@@ -522,7 +522,9 @@ export const GEN3_ITEMS_KEY: number[] = [
   364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376,
 ];
 
-export const GEN3_ITEMS_BALLS: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+export const GEN3_ITEMS_BALLS: number[] = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+];
 
 export const GEN3_ITEMS_TMS_HMS: number[] = [
   289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303,
@@ -562,7 +564,7 @@ export function getItemName(itemId: number, generation: number = 3): string {
  */
 export function isHoldableItem(
   itemId: number,
-  generation: number = 3,
+  generation: number = 3
 ): boolean {
   if (itemId === 0) return false;
 
@@ -587,19 +589,21 @@ export function getItemListNames(generation: number): string[] {
  * Get all items for a generation with id and name
  */
 export function getItemList(
-  generation: number,
+  generation: number
 ): Array<{ id: number; name: string }> {
   const items = generation === 2 ? ITEMS_GEN2 : ITEMS_GEN3;
   return items
     .map((name, id) => ({ id, name }))
-    .filter((item) => item.name && item.name !== "---" && item.name !== "(None)");
+    .filter(
+      (item) => item.name && item.name !== "---" && item.name !== "(None)"
+    );
 }
 
 /**
  * Get items valid for a specific Gen 3 pocket type
  */
 export function getGen3ItemsForPocket(
-  pocketType: "items" | "key" | "balls" | "tm" | "berries" | "pc",
+  pocketType: "items" | "key" | "balls" | "tm" | "berries" | "pc"
 ): Array<{ id: number; name: string }> {
   let validIds: number[];
 
