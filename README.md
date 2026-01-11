@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PKHeX Web 🎮
 
-## Getting Started
+A free, browser-based Pokémon save editor. Edit your classic Pokémon save files — no downloads, no installs.
 
-First, run the development server:
+> **This is a fan project** inspired by [PKHeX](https://github.com/kwsch/PKHeX), the legendary save editor by kwsch. Built for fun and nostalgia.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🕹️ Supported Games
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Generation | Games                                               |
+| :--------: | --------------------------------------------------- |
+|   Gen 1    | Pokémon Red, Blue, Yellow                           |
+|   Gen 2    | Pokémon Gold, Silver, Crystal                       |
+|   Gen 3    | Pokémon Ruby, Sapphire, Emerald, FireRed, LeafGreen |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ What You Can Do
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Pokémon Editing
 
-## Learn More
+- Change species, nickname, and level
+- Modify moves and PP
+- Edit DVs/IVs and EVs
+- Adjust friendship and held items
+- Set shiny status (Gen 2+)
 
-To learn more about Next.js, take a look at the following resources:
+### Party & Box Management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- View all your Pokémon at a glance
+- Copy, paste, and swap Pokémon between slots
+- Delete unwanted Pokémon
+- Navigate through all PC boxes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Trainer & Game Data
 
-## Deploy on Vercel
+- Edit trainer name and ID
+- Modify Pokédex entries (seen/caught)
+- Manage bag items and quantities
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Quality of Life
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Legality Checker** — See if your Pokémon pass basic validity checks
+- **Batch Actions** — Heal all Pokémon, max out stats, and more
+- **Instant Export** — Download your edited save file with one click
+
+## 📖 How to Use
+
+1. **Get your save file** — Use a save manager like [Checkpoint](https://github.com/FlagBrew/Checkpoint) to extract saves from your console, or locate your emulator's save folder
+2. **Load it here** — Drag and drop your `.sav` file onto the page
+3. **Make your edits** — Click on Pokémon to edit them, use the tabs for trainer/bag/Pokédex
+4. **Export** — Click "Export Save" to download your modified file
+5. **Load it back** — Import the save back to your console or emulator
+
+## ⚠️ Important Notes
+
+- **Always backup your saves** before editing
+- Save files must be decrypted/raw format (not encrypted with console keys)
+- Your data never leaves your browser — all editing happens locally
+
+## 🚫 Fair Play Notice
+
+**I do not support or condone cheating at the expense of others.** Do not use edited Pokémon in competitive battles or trades with players who are unaware.
+
+## 🙏 Credits
+
+- **[PKHeX](https://github.com/kwsch/PKHeX)** by kwsch — The original save editor that inspired this project
+- **[Bulbapedia](https://bulbapedia.bulbagarden.net/)** — Pokémon data reference
+
+## 📜 Disclaimer
+
+This is an unofficial fan project for educational and entertainment purposes. Not affiliated with Nintendo, Game Freak, The Pokémon Company, or the original PKHeX project. All Pokémon trademarks belong to their respective owners.
+
+---
+
+<p align="center">Made with ❤️ for the Pokémon community</p>
